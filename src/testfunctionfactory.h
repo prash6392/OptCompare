@@ -6,6 +6,7 @@
 #include "testfunctions.h"
 #include "rosenbrockfunction.h"
 #include "quadraticfunction.h"
+#include "rastringinfunction.h"
 
 namespace optCompare {
 
@@ -21,6 +22,10 @@ namespace optCompare {
             else if (name == "Quadratic")
             {
                 return std::unique_ptr<TestFunction>(new QuadraticFunction());
+            }
+            else if (name == "Rastringin")
+            {
+                return std::unique_ptr<TestFunction>(new RastringinFunction());
             }
             else
             {
