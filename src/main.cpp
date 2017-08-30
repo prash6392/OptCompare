@@ -19,18 +19,7 @@ int main(int argc, char ** argv)
     if (test_func_name != NULL)
     {
         std::unique_ptr<TestFunction> tf = TestFunctionFactory::createFunction(std::string(test_func_name));
-
-        if (std::string(test_func_name) == "Rosenbrock")
-        {
-            auto rosenbrock = dynamic_cast<RosenbrockFunction *>(tf.get());
-            rosenbrock->findOptimum();
-
-        }
-        else
-        {
-            throw std::runtime_error("Unsupported function.");
-            return -1;
-        }
+        tf->findOptimum();
     }
     else
     {
